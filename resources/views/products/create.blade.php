@@ -19,26 +19,39 @@
                     <div class="card-header bg-dark">
                         <h3 class="text-white">Create Product</h3>
                     </div>
-                    <div class="card-body">
+
+                    <form action="{{ route('products.store') }}" method="post" >
+                        @csrf
+
+                        <!-- Name field -->
                         <div class="mb-3">
-                            <label for="" class="form-label h5">Name</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Name"
-                            name="name">
+                            <label for="name" class="form-label h5">Name</label>
+                            <input  value="{{ old('name') }}"type="text" class="@error('name') is-invalid @enderror form-control form-control-lg" name="name" placeholder="Name">
+                            @error('name')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                            @enderror
                         </div>
 
-                    <div class="mb-3">
-                        <label for="" class="form-label h5">Sku</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Name"
-                        name="name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label h5">Price</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Name"
-                        name="name">
-                    </div>
+
+                        <div class="mb-3">
+                            <label for="sku" class="form-label h5">Sku</label>
+                            <input value="{{ old('sku') }}" type="text" class="@error('sku') is-invalid @enderror form-control form-control-lg" name="sku" placeholder="SKU">
+                            @error('sku')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <!-- Price field -->
+                        <div class="mb-3">
+                            <label for="price" class="form-label h5">Price</label>
+                            <input value="{{ old('price') }}" type="text" class="@error('price') is-invalid @enderror form-control form-control-lg" name="price" placeholder="Price">
+                            @error('price')
+                                <p class="invalid-feedback">{{ $message }}</p>
+                            @enderror
+                        </div>
                     <div class="mb-3">
                         <label for="" class="form-label h5">Description</label>
-                       <textarea placeholder="description" class="form-control"name="description"  cols="30" rows="5"></textarea>
+                       <textarea  value="{{ old('description') }}" placeholder="description" class="form-control"name="description"  cols="30" rows="5"></textarea>
                     </div>
 
                 <div class="mb-3">
@@ -49,6 +62,8 @@
                 <div class="d-grid">
                     <button class="btn btn-lg btn-primary">Submit</button>
                 </div>
+            </form>
+
         <div>
         </div>
     </div>
