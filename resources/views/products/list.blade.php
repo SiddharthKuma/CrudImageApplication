@@ -9,7 +9,7 @@
   <body>
 
     <div class="bg-dark py-3">
-        <h3 class="text-white text-center">Simple Laarvel 11 CRUD</h3>
+        <h3 class="text-white text-center">Simple Laarvel  CRUD</h3>
     </div>
     <div class="container">
         <div class="row d-flex justify-content-center">
